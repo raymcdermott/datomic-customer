@@ -1,0 +1,114 @@
+[
+ ;; Person
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :person/shared-id
+  :db/valueType          :db.type/uuid
+  :db/cardinality        :db.cardinality/one
+  :db/unique             :db.unique/value
+  :db/doc                "The UUID of the person created by the data management tool"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :person/firstName
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db/doc                "The first name of the person"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :person/middleName
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db/doc                "The middle name of the person"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :person/lastName
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db/doc                "The last name of the person"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :person/preferredLanguage
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db/doc                "The person's preferred language"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :person/gender
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/one
+  :db/doc                "A person's gender"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id    #db/id[:db.part/user]
+  :db/doc   "User space enumeration for FEMALE"
+  :db/ident :person.gender/female}
+
+ {:db/id    #db/id[:db.part/user]
+  :db/doc   "User space enumeration for MALE"
+  :db/ident :person.gender/male}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :person/birthDate
+  :db/valueType          :db.type/instant
+  :db/cardinality        :db.cardinality/one
+  :db/doc                "The birth date of the person (date only, no need for time) ... Maybe we can normalise this with a function!"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :person/nationality
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db/doc                "The nationality of the person"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :person/contactPoint
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/many
+  :db/doc                "How we can contact the person"
+  :db.install/_attribute :db.part/db}
+
+;; Physical (Street) Addresses
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :address/contactType
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/one
+  :db/doc                "Type of address (personal or corporate)"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id    #db/id[:db.part/user]
+  :db/doc   "User space enumeration for personal related contact types"
+  :db/ident :address.contactType/personal}
+
+ {:db/id    #db/id[:db.part/user]
+  :db/doc   "User space enumeration for corporate related contact types"
+  :db/ident :address.contactType/corporate}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :address/consentToContact
+  :db/valueType          :db.type/boolean
+  :db/cardinality        :db.cardinality/one
+  :db/doc                "Whether the address can be used for contact"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :address/preferredContactMethod
+  :db/valueType          :db.type/boolean
+  :db/cardinality        :db.cardinality/one
+  :db/doc                "Whether this address is prefered for contact"
+  :db.install/_attribute :db.part/db}
+
+;"addressLine1": "60 Avenue du Bourget",
+;"addressLine2": "Bourgetlaan 60",
+;"addressLine3": null,
+;"addressLocality": null,
+;"addressRegion": "Brussels",
+;"postalCode": "1140",
+;"country": "Belgium"
+
+ ]
