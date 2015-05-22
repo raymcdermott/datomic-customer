@@ -124,7 +124,7 @@
   :db/ident              :contact/postal
   :db/valueType          :db.type/ref
   :db/cardinality        :db.cardinality/many
-  :db/doc                "Whether this address is prefered for contact"
+  :db/doc                "Postal addresses"
   :db.install/_attribute :db.part/db}
 
  {:db/id                 #db/id[:db.part/db]
@@ -216,6 +216,15 @@
   :db/valueType          :db.type/string
   :db/cardinality        :db.cardinality/one
   :db.install/_attribute :db.part/db}
+
+ {:db/id    #db/id[:db.part/user]
+  :db/ident :social-network.name/facebook}
+
+ {:db/id    #db/id[:db.part/user]
+  :db/ident :social-network.name/twitter}
+
+ {:db/id    #db/id[:db.part/user]
+  :db/ident :social-network.name/pinterest}
 
  {:db/id                 #db/id[:db.part/db]
   :db/ident              :social-network/username

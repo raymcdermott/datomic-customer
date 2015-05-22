@@ -17,7 +17,7 @@
 @(d/transact conn schema-tx)
 
 ;; parse seed data edn file
-(def data-tx (read-string (slurp "customer-data0.edn")))
+(def data-tx (read-string (slurp "customer-data.edn")))
 
 ;; submit seed data transaction
 @(d/transact conn data-tx)

@@ -1,0 +1,73 @@
+[;; A user writing an article
+ {:db/id            #db/id [:db.part/user -1]
+  :person/shared-id "UUID-001"
+  :person/first-name "Ray"
+  :person/middle-name "Mond"
+  :person/last-name "McDermott"
+  :person/language "EN"
+  :person/gender :person.gender/male
+  :person/birth-date "23-01-1962"
+  :person/nationality "British"
+  }
+
+ {:db/id            #db/id [:db.part/user -2]
+  :contact/channel :contact.channel/postal
+  :contact/mode :contact.mode/personal
+  :contact/consent true
+  :contact/preferred false
+  :person/_contacts #db/id [:db.part/user -1]
+  }
+
+ {:db/id            #db/id [:db.part/user -3]
+  :contact/channel :contact.channel/email
+  :contact/mode :contact.mode/personal
+  :contact/consent true
+  :contact/preferred true
+  :person/_contacts #db/id [:db.part/user -1]
+  }
+
+ {:db/id            #db/id [:db.part/user -4]
+  :contact/channel :contact.channel/telephone
+  :contact/mode :contact.mode/personal
+  :contact/consent false
+  :contact/preferred false
+  :person/_contacts #db/id [:db.part/user -1]
+  }
+
+ {:db/id            #db/id [:db.part/user -5]
+  :contact/channel :contact.channel/social-network
+  :contact/mode :contact.mode/personal
+  :contact/consent true
+  :contact/preferred true
+  :person/_contacts #db/id [:db.part/user -1]
+  }
+
+ {:db/id            #db/id [:db.part/user -6]
+  :postal/line1 "First Line"
+  :postal/line2 "Second Line"
+  :postal/line3 "Third Line"
+  :postal/locality "Locals"
+  :postal/region "Reeg"
+  :postal/code "8090"
+  :postal/country "Zaire"
+  :contact/_postal #db/id [:db.part/user -2]
+  }
+
+ {:db/id            #db/id [:db.part/user -7]
+  :email/address "person@foomail.com"
+  :contact/_email #db/id [:db.part/user -3]
+  }
+
+ {:db/id            #db/id [:db.part/user -8]
+  :telephone/country-code "32"
+  :telephone/country-code "827-1678"
+  :contact/_telephone #db/id [:db.part/user -4]
+  }
+
+ {:db/id            #db/id [:db.part/user -9]
+  :social-network/name :social-network.name/facebook
+  :social-network/username "mondoman"
+  :contact/_social #db/id [:db.part/user -5]
+  }
+
+ ]
